@@ -21,7 +21,7 @@ def preprocess_text(text):
     padded_tokens = pad_sequences(tokens, maxlen=20)
     return padded_tokens[0]
 
-# Create the app
+# Create the app for the sentiment analysis
 st.title('Sentiment Analysis App')
 
 #Create text input widget for user input
@@ -34,7 +34,7 @@ if st.button('Predict sentiment'):
 
     #Make prediction using the load model
     prediction = model.predict(np.array([processed_input]))
-    st.write(prediction)
+    st.write(prediction) # To show how the prediction is calculated
     sentiment = 'Negative' if prediction[0][0] > 0.5 else 'Positive'
 
     # Display the sentiment
